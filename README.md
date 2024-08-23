@@ -4,18 +4,18 @@ This document provides detailed steps on how to access and use data hosted on Go
 
 ## Google Drive
 
-### Accessing Data in Google Drive
+## Accessing Data in Google Drive
 1. Google Drive link (will come soon).
 
 ## Baidu Netdisk
 1. Visit the link: [Baidu Netdisk](https://pan.baidu.com/s/1nwiieKtYzNtgfMkuQERpaw?pwd=THGS)
 2. Enter the password: THGS
    
-### Data Structure
+# Fah Dataset Structure Overview
 
-The directory structure for the project is outlined below. Each subfolder contains data related to a specific 10-second video segment, along with various associated files and subdirectories that store different types of data processed and generated during the analysis.
+The Fah dataset is organized into multiple directories, each corresponding to a 10-second video segment. Below is a detailed breakdown of the dataset's structure and contents.
 
-```text
+## Data Structure Example
 Fah/
 ├── Fah_output000/ (data folder corresponding to a 10s video)
 │   ├── Fah_output000.mp4
@@ -38,9 +38,13 @@ Fah/
 ├── optimized_camera_params.npz (camera parameters)
 └── poses_optimized.npz (refined body parameters through Joint Optimization Strategy, Stage 1)
 
-### Using the Data
-Once downloaded, the data can be decompressed in Liunx using command like: tar -xzvf Trading.tar.gz
+## Using the Data
 
-## Important Notes
-- Ensure compliance with all relevant usage and distribution policies.
-- If there are any problems, please contact [chenchuang010@gmail.com] or directly raise a issue.
+Once the data is downloaded, it can be decompressed in Linux using the following command:
+
+```bash
+tar -xzvf Fah.tar.gz
+
+##Important Notes
+Ensure compliance with all relevant usage and distribution policies.
+If there are any problems, please contact [chenchuang010@gmail.com] or directly raise an issue.
