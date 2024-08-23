@@ -16,7 +16,7 @@ This document provides detailed steps on how to access and use data hosted on Go
 The Fah dataset is organized into multiple directories, each corresponding to a 10-second video segment. Below is a detailed breakdown of the dataset's structure and contents.
 
 ## Data Structure Example
-'''text
+```text
 Fah/
 ├── Fah_output000/ (data folder corresponding to a 10s video)
 │   ├── Fah_output000.mp4
@@ -42,10 +42,9 @@ Fah/
 ## Using the Data
 
 Once the data is downloaded, it can be decompressed in Linux using the following command:
-
 ```bash
 tar -xzvf Fah.tar.gz
 
-##Important Notes
+## Important Notes
 Ensure compliance with all relevant usage and distribution policies.
 If there are any problems, please contact [chenchuang010@gmail.com] or directly raise an issue.
