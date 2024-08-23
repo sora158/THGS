@@ -15,6 +15,7 @@ This document provides detailed steps on how to access and use data hosted on Go
 
 The directory structure for the project is outlined below. Each subfolder contains data related to a specific 10-second video segment, along with various associated files and subdirectories that store different types of data processed and generated during the analysis.
 
+```text
 Fah/
 ├── Fah_output000/ (data folder corresponding to a 10s video)
 │   ├── Fah_output000.mp4
