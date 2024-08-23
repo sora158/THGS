@@ -37,6 +37,7 @@ Fah/
 ...
 ├── optimized_camera_params.npz (camera parameters)
 └── poses_optimized.npz (refined body parameters through Joint Optimization Strategy, Stage 1)
+
 ### Using the Data
 Once downloaded, the data can be decompressed in Liunx using command like: tar -xzvf Trading.tar.gz
 
