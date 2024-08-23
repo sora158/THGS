@@ -11,7 +11,10 @@ This document provides detailed steps on how to access and use data hosted on Go
 1. Visit the link: [Baidu Netdisk](https://pan.baidu.com/s/1nwiieKtYzNtgfMkuQERpaw?pwd=THGS)
 2. Enter the password: THGS
    
-### Data Sturcture
+### Data Structure
+
+The directory structure for the project is outlined below. Each subfolder contains data related to a specific 10-second video segment, along with various associated files and subdirectories that store different types of data processed and generated during the analysis.
+
 Fah/
 ├── Fah_output000/ (data folder corresponding to a 10s video)
 │   ├── Fah_output000.mp4
@@ -30,7 +33,7 @@ Fah/
 ├── Fah_output001/ (similar data folder structure)
 ├── Fah_output002/ (similar data folder structure)
 ├── Fah_output003/ (similar data folder structure)
-......
+...
 ├── optimized_camera_params.npz (camera parameters)
 └── poses_optimized.npz (refined body parameters through Joint Optimization Strategy, Stage 1)
 ### Using the Data
