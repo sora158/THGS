@@ -12,6 +12,27 @@ This document provides detailed steps on how to access and use data hosted on Go
 2. Enter the password: THGS
    
 ### Data Sturcture
+Fah/
+├── Fah_output000/ (data folder corresponding to a 10s video)
+│   ├── Fah_output000.mp4
+│   ├── aud.wav
+│   ├── aud_eo.npy (audio feature)
+│   ├── deca/
+│   ├── deca_vis/
+│   ├── face_mask/
+│   ├── fan/
+│   ├── image (ground truth)
+│   ├── keypoints.npy (2d keypoints)
+│   ├── ours_exp (estimated SMPL-X params)
+│   ├── parsing (foreground mask)
+│   ├── pixie/
+│   └── pixie_vis/
+├── Fah_output001/ (similar data folder structure)
+├── Fah_output002/ (similar data folder structure)
+├── Fah_output003/ (similar data folder structure)
+......
+├── optimized_camera_params.npz (camera parameters)
+└── poses_optimized.npz (refined body parameters through Joint Optimization Strategy, Stage 1)
 ### Using the Data
 Once downloaded, the data can be decompressed in Liunx using command like: tar -xzvf Trading.tar.gz
 
