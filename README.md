@@ -1,4 +1,4 @@
-# TalkingAvatar Dataset for Paper THGS: Lifelike Talking Human Avatar Synthesis from Monocular Video via 3D Gaussian Splatting
+# TalkingAvatar Dataset for Paper THGS
 
 This document provides detailed steps on how to access and use data hosted on Google Drive and Baidu Netdisk.
 
