@@ -24,6 +24,4 @@ opt:
     end: 1799 
     skip: 1
     downscale: 1
-    audio_driven: False
-    cross_identity: False
     identity: Fah
