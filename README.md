@@ -38,13 +38,14 @@ Fah/
 └── poses_optimized.npz (refined body parameters through Joint Optimization Strategy, Stage 1)
 ```
 
-## Using the Data
+## Example for using the data
 
 Once the data is downloaded, it can be decompressed in Linux using the following command:
 ```bash
 tar -xzvf Fah.tar.gz 
 ```
 videoDataset.py provide an api to parse the data. Change root_dir to your root directory, subject to 'Fah' for example, opt settings can be found in train.yaml.
+
 ## Important Notes
 Ensure compliance with all relevant usage and distribution policies.
 If there are any problems, please contact [chenchuang010@gmail.com] or directly raise an issue.
