@@ -1,0 +1,54 @@
+hydra:
+  run:
+    dir: '.'
+  output_subdir: null
+args:
+  #profile: "./profiles/people/TalkingAvatar_audio_0623.yaml" #change here
+  profile: "./profiles/people/TalkingAvatar.yaml"
+  dataset: "videoDataset"
+  logbase: "debug"
+  fast: false
+  no_eval: false
+  viewer_only: false
+  eval_only: false
+  audio_driven: false
+  audio_path: ""
+  log_dir: ""
+  skip_eval_if_exsists: false
+  viz_only: false
+  pca: false
+  audio_driven_pose: ""
+name: videoDataset
+subject: Trading
+gender: male
+opt:
+  dataroot: ./data/ta_dataset/${subject}/
+  subject: ${subject}
+  train:
+    w_bg: False
+    num_workers: 8
+    batch_size: 1
+    start: 0
+    end:  2700 #audio 1550 #2700  #13800
+    skip: 4
+    downscale: 1
+    
+  val:
+    w_bg: False
+    num_workers: 8
+    batch_size: 1
+    start: 180  
+    end: 180  
+    skip: 1
+    downscale: 1
+  test:
+    w_bg: True
+    num_workers: 8
+    batch_size: 1
+    start: 1500 #1530 
+    end: 1799 #2097 #1730 
+    skip: 1
+    downscale: 1
+    audio_driven: False
+    cross_identity: False
+    identity: Fah
