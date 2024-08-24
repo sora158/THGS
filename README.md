@@ -3,9 +3,7 @@
 This document provides detailed steps on how to access and use data hosted on Google Drive and Baidu Netdisk.
 
 ## Google Drive
-
-## Accessing Data in Google Drive
-1. Google Drive link (will come soon).
+1. Visit the link: [Google Drive](https://drive.google.com/drive/folders/15Ly9UUoeltswIsJU9Fp7tAuaIlcS98gI?usp=sharing)
 
 ## Baidu Netdisk
 1. Visit the link: [Baidu Netdisk](https://pan.baidu.com/s/1nwiieKtYzNtgfMkuQERpaw?pwd=THGS)
