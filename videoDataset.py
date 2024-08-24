@@ -183,7 +183,7 @@ def resize_image_to_720p(image, target_width, target_height):
     return resized_image
 
 class VideoDataset(torch.utils.data.Dataset):
-    def __init__(self, root_dir,subject,split,opt, audio_driven_file_path=None):
+    def __init__(self, root_dir,subject,split,opt):
         self.root_dir =root_dir
         self.subject = subject
         subdirectories = [d for d in os.listdir(root_dir) if os.path.isdir(os.path.join(root_dir, d))]
@@ -215,26 +215,14 @@ class VideoDataset(torch.utils.data.Dataset):
         self.max_distances = {}
         
         self.msk_path = {} #用于切片
-        self.msk_left_path = {} 
-        self.msk_right_path = {} 
-        self.msk_face_path = {} 
         self.face_parsing_path = {}
         self.img_path = {}
         self.smplx_params  = {}
         self.rays ={}
         self.keypoints ={}   
         self.audio={}    
-        self.min_distance = {}
-        self.max_distance = {}
         self.keypoints_valid={}
-        self.audio_pose_all = {}
-        if split == "test":
-            self.audio_driven = opt.audio_driven
-        else:
-            self.audio_driven = False
-            self.cross_identity = False
         all_camera_translations = []
-        audio_pose_data=[]
         num = 0
         for subdirectory in subdirectories:
             ori_imgs_path = os.path.join(self.root_dir, subdirectory, "image")
@@ -286,18 +274,6 @@ class VideoDataset(torch.utils.data.Dataset):
                 
         self.keypoints_2d = np.vstack(self.keypoints_2d)
         self.audio_data = np.vstack(self.audio_data)
-        '''
-        if self.audio_driven:
-            audio_pose_all = self.read_audio_pose(audio_driven_file_path)
-            audio_pose_all = {key: audio_pose_all[key] for key in audio_pose_all}
-            for k, v in audio_pose_all.items():
-                if k == "expression" or k == "jaw_pose":
-                    print(v.shape)
-                    self.smpl_params[k] = v[start:end:skip]
-            print(f"self.audio_driven为True,进行audio_driven推理: {audio_driven_file_path}!")
-        else:
-            print(f"self.audio_driven为False,不进行audio_driven推理, 照常读取: smpl_params")
-        '''
 
         for i in range(start, end, skip):
             self.msk_path.update({(i-start)//skip: self.parsing_imgs_path[i]})
@@ -318,28 +294,6 @@ class VideoDataset(torch.utils.data.Dataset):
             for label_idx in range(11,14):
                 face_parsing += (face_msk[i] == label_idx).astype(np.bool) 
         return face_parsing
-
-    def read_audio_pose(self,audio_driven_pose):
-        npz_file = np.load(audio_driven_pose, allow_pickle=True)
-        full_pose = npz_file["poses"].reshape(-1, 55, 3)
-        betas = npz_file["betas"]
-        transl = npz_file["trans"]
-        expression = npz_file["expressions"]
-        data_dict = {
-            "betas": betas,
-            "global_orient": full_pose[:, 0, :],
-            "body_pose": full_pose[:, 1:22, :],
-            "jaw_pose": full_pose[:, 22, :],
-            "leye_pose": full_pose[:, 23, :],
-            "reye_pose": full_pose[:, 24, :],
-            "left_hand_pose": full_pose[:, 25:40, :],
-            "right_hand_pose": full_pose[:, 40:55, :],
-            "transl": transl,
-            "expression": expression
-        }
-        return data_dict
-    
-    def __len__(self):
         return len(self.img_path)
     
     def __getitem__(self, idx):
